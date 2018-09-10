@@ -28,6 +28,37 @@
     }
   }
   \l_demo_tl
+  % Types
+  \regex_replace_all:nnN {
+    \A(\c{lst@um&})([A-Z][a-zA-Z0-9]*)
+  }
+  {
+    \cB{
+      \1
+      \c{lst@keywordstyle7}
+      \cB{
+        \2
+        \cE
+      }
+      \cE
+    }
+  }
+  \l_demo_tl
+  % Types
+  \regex_replace_all:nnN {
+    \A([A-Z][a-zA-Z0-9]*)
+  }
+  {
+    \cB{
+      \c{lst@keywordstyle7}
+      \cB{
+        \1
+        \cE
+      }
+      \cE
+    }
+  }
+  \l_demo_tl
   % mut / ptr type
   \regex_replace_all:nnN {
     \A([\c{lst@um&}\c{lst@um\*}]?(?:mut|const)|(?:mut|const))
@@ -89,21 +120,7 @@
     }
   }
   \l_demo_tl
-  % Types
-  \regex_replace_all:nnN {
-    \A([A-Z][a-zA-Z0-9]*)
-  }
-  {
-    \cB{
-      \c{lst@keywordstyle7}
-      \cB{
-        \1
-        \cE
-      }
-      \cE
-    }
-  }
-  \l_demo_tl
+
 
   \tl_use:N \l_demo_tl
   \noprint
