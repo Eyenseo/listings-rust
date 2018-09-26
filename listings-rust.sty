@@ -12,6 +12,22 @@
 \NewDocumentCommand\lifetime{}
 {
   \tl_set:No \l_demo_tl {\the\use:c{lst@token}}
+  % self
+  \regex_replace_all:nnN {
+    \A(\c{lst@um&}?)(self)\Z
+  }
+  {
+    \cB{
+      \1
+      \c{lst@keywordstyle}
+      \cB{
+        \2
+        \cE
+      }
+      \cE
+    }
+  }
+  \l_demo_tl
   % Lifetimes
   \regex_replace_all:nnN {
     \A(\c{lst@um&}?)(\c{lst@um'}\w+(?:[^\c{lst@um'}]|\Z))
